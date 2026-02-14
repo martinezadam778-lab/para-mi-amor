@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz 14 de Febrero ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Imagen bonita de fondo */
+.fondo-img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: url("https://images.unsplash.com/photo-1518199266791-5375a83190b7") no-repeat center center/cover;
+    filter: blur(4px);
+    transform: scale(1.1);
+    z-index:0;
+}
+
+/* Oscurecer fondo elegante */
+body::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.55);
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+/* Tarjeta */
+.card{
+    position:relative;
+    z-index:2;
+    background: rgba(255,255,255,0.92);
+    width:90%;
+    max-width:420px;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.6);
+    animation: aparecer 1.5s ease;
+}
+
+@keyframes aparecer{
+    from{ transform: scale(0.8); opacity:0; }
+    to{ transform: scale(1); opacity:1; }
+}
+
+h1{
+    color:#ff0066;
+    margin-bottom:15px;
+}
+
+.mensaje{
+    font-size:16px;
+    margin-bottom:20px;
+    color:#333;
+}
+
+#contador{
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+button{
+    background:#ff0066;
+    border:none;
+    padding:12px 20px;
+    color:white;
+    border-radius:20px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#cc0052;
+}
+</style>
+</head>
+
+<body>
+
+<div class="fondo-img"></div>
+
+<div class="card">
+    <h1>Feliz 14 de Febrero 💖</h1>
+
+    <div class="mensaje">
+        Gracias por ser mi persona favorita,
+        mi lugar seguro y mi mejor historia ❤️  
+        No importa cuánto pase el tiempo…
+        siempre voy a elegirte.
+    </div>
+
+    <div>
+        Nuestro amor comenzó hace:
+    </div>
+    <div id="contador"></div>
+
+    <button onclick="sorpresa()">Toca aquí 💌</button>
+</div>
+
+<script>
+const fechaInicio = new Date("2025-12-11 00:00:00").getTime();
+
+function actualizar(){
+    const ahora = new Date().getTime();
+    const diferencia = ahora - fechaInicio;
+
+    const dias = Math.floor(diferencia / (1000*60*60*24));
+    const horas = Math.floor((diferencia / (1000*60*60)) % 24);
+    const minutos = Math.floor((diferencia / (1000*60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    document.getElementById("contador").innerHTML =
+        dias + " días " + horas + " horas " +
+        minutos + " minutos " + segundos + " segundos ❤️";
+}
+
+setInterval(actualizar,1000);
+
+function sorpresa(){
+    alert("Prometo amarte hoy, mañana y todos los días 💍❤️");
+}
+</script>
+
+</body>
+</html>
